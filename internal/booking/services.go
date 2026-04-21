@@ -1,0 +1,14 @@
+package booking
+
+type Service struct {
+	// all services are added here,  ex : loggers
+	store BookingStore
+}
+
+func NewService(store BookingStore) *Service {
+	return &Service{store}
+}
+
+func (s *Service) Book(b Booking) error {
+	return s.store.Book(b)
+}
