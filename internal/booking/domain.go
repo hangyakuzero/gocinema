@@ -2,7 +2,10 @@
 // it uses a Booking Struct at the core, and then uses clever methods to make bookings, list bookings, etc.
 package booking
 
-import "errors"
+import (
+	"errors"
+	"time"
+)
 
 var (
 	ErrSeatAlreadyBooked = errors.New("THIS SEAT HAS ALREADY BEEN TAKEN")
@@ -10,11 +13,12 @@ var (
 )
 
 type Booking struct {
-	ID      string // booking ig
-	MovieID string // which movie
-	SeatID  string // which seat
-	UserID  string // corresponding user
-	Status  string
+	ID        string // booking ig
+	MovieID   string // which movie
+	SeatID    string // which seat
+	UserID    string // corresponding user
+	Status    string
+	ExpiresAt time.Time
 }
 
 type BookingStore interface {
